@@ -4,9 +4,8 @@ export default {
      * @param {number} input any number
      * @returns {number} that number, plus one.
      */
-    search: async function(_query, callback) {
-        const students = await Student.find().exec()
-        callback(null, students)
+    search(callback) {
+        Student.find().exec(callback)
     },
     getOne(data, callback) {
         Student.findOne({
