@@ -26,7 +26,8 @@ export default {
                 { _id: data.params.id },
                 {
                     teacher_firstname: data.body.teacher_firstname,
-                    teacher_lastname: data.body.teacher_lastname
+                    teacher_lastname: data.body.teacher_lastname,
+                    teacher_id: data.body_teacher_id
                 }
             )
             .exec(function(err, data) {
@@ -38,20 +39,32 @@ export default {
                     callback(null, data)
                 }
             })
-        // .then((teachers) => {
-        //     if (!teachers) {
-        //         return res.status(404).send({
-        //             message: "Data not found with id " + req.params.id
-        //         })
+    },
+    patchObject: (data, callback) => {
+        var updatemyrecord = {}
+        for (var field in teachers) {
+            updatemyrecord["somekey." + field] = teachers[field]
+        }
+        teachers
+            .updateOne({ _id: data.params.id }, { $set: updatemyrecord })
+            .exec(callback)
+        // .exec(function(err, data) {
+        //     if (err) {
+        //         callback(err, null)
+        //     } else if (_.isEmpty(data)) {
+        //         callback(null, "No data found")
+        //     } else {
+        //         callback(null, data)
         //     }
-        //     data.send(teachers)
         // })
-        // .catch((err) => {
-        //     if (err.kind === "ObjectId") {
-        //         return res.status(404).send({
-        //             message: "Data not found with id " + req.params.id
-        //         })
-        //     }
-        // })
+    },
+    pagin: (data, callback) => {
+        var pageno = data.params.page
+        var size = 3
+        teachers
+            .find()
+            .skip(pageno * size - size)
+            .limit(size)
+            .exec(callback)
     }
 }

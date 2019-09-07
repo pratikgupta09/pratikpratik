@@ -13,11 +13,21 @@ router.get("/:id", (req, res) => {
 //     console.log("req.params::::", req.params)
 //     teachersModel.deleteData(req.params, res.callback)
 //     res.send(`Delete For Id ${req.params.id}`)
-//     // const Teacher = new teachers(req.body)
-//     // Teacher.save(res.callback)
 // })
-router.put("/:id", (req, res) => {
-    teachersModel.updateById(req, res.callback)
-    // res.send(`Update For Id ${req.params.id}`)
+// router.put("/:id", (req, res) => {
+//     teachersModel.updateById(req, res.callback)
+//     // res.send(`Update For Id ${req.params.id}`)
+// })
+// router.patch("/:id", (req, res) => {
+//     console.log("hi")
+//     teachersModel.patchObject(req, res.callback)
+//     console.log("hello")
+
+// })
+router.get("/hello/:page", (req, res) => {
+    console.log("hi")
+    teachersModel.pagin(req, res.callback)
+    // res.send("paginated")
 })
+
 export default router

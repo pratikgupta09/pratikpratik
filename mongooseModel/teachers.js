@@ -3,4 +3,5 @@ var schema = new Schema({
     teacher_lastname: String,
     teacher_id: Number
 })
+
 export default mongoose.model("teachers", schema)
