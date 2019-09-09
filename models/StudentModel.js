@@ -5,15 +5,15 @@ export default {
      * @returns {number} that number, plus one.
      */
     search(callback) {
-        Student.find().exec(callback)
+        Students.find().exec(callback)
     },
     getOne(data, callback) {
-        Student.findOne({
+        Students.findOne({
             _id: data.id
         }).exec(callback)
     },
     saveData: (data, callback) => {
-        const student = new Student(data)
+        const student = new Students(data)
         student.save(callback)
     }
 }
