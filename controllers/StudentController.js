@@ -4,17 +4,17 @@ router.get("/", (req, res) => {
 })
 router.get(
     "/:id",
-    ValidateRequest({
-        params: {
-            type: "object",
-            properties: {
-                id: {
-                    type: "string",
-                    format: "objectId"
-                }
-            }
-        }
-    }),
+    // ValidateRequest({
+    //     params: {
+    //         type: "object",
+    //         properties: {
+    //             id: {
+    //                 type: "string",
+    //                 format: "objectId"
+    //             }
+    //         }
+    //     }
+    // }),
     (req, res) => {
         StudentModel.getOne(req.params, res.callback)
     }
@@ -26,7 +26,6 @@ router.put("/:id", (req, res) => {
     res.send(`Update For Id ${req.params.id}`)
 })
 router.patch("/:id", (req, res) => {
-    
     res.send(`Path For Id ${req.params.id}`)
 })
 router.delete("/:id", (req, res) => {

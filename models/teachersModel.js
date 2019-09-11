@@ -3,7 +3,7 @@ export default {
     //     const Teacher = await teachers.populate("Student", "-email").exec()
     //     callback(null, Teacher)
     // },
-    search: (callback) => {
+    search(callback) {
         teachers.find()
         teachers
             .aggregate([
