@@ -9,10 +9,12 @@
     "scripts": {
         "start": "nodemon index.js",
         "build": "docker build -t wohlig/wohlig-framework:latest .",
-        "serve": "docker run -p 3000:3000 wohlig/wohlig-framework:latest"
+        "serve": "docker run -p 3000:3000 wohlig/wohlig-framework:latest",
+        "test": "mocha"
     },
     "dependencies": {
         "async": "^3.1.0",
+        "chai-http": "^4.3.0",
         "core-util-is": "^1.0.2",
         "wohlig-framework-core": "latest"
     },
@@ -23,7 +25,9 @@
         "@babel/preset-env": "^7.1.0",
         "@babel/register": "^7.0.0",
         "@babel/runtime": "^7.1.2",
-        "eslint": "^5.6.0"
+        "chai": "^4.2.0",
+        "eslint": "^5.6.0",
+        "mocha": "^6.2.0"
     },
     "prettier": {
         "trailingComma": "none",
