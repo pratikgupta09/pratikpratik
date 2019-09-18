@@ -16,11 +16,11 @@ export default {
                 async.waterfall(
                     [
                         function(callback) {
-                            console.log("function1")
+                            //     // console.log("function1")
                             callback(null, data)
                         },
                         function(data, callback) {
-                            console.log("22222222")
+                            // console.log("22222222")
                             console.log("skip value -", page * limit - limit)
                             teachers
                                 .find()
@@ -29,34 +29,32 @@ export default {
                                 .exec(callback)
                         },
                         function(users, callback) {
-                            console.log("users1111--", users)
                             page++
-
+                            if (users.length < limit) {
+                                checkPagination = false
+                            }
+                            // console.log("users1111--", users)
+                            console.log("arraySize ", users.length)
+                            console.log("limit ", limit)
                             async.each(
                                 users,
                                 function(user, callback) {
                                     asyncModel.doFunctinality(user, callback)
-                                }
-                                //callback
-                            ),
-                            callback
-                            console.log("arraySize ", users.length)
-                            console.log("limit ", limit)
-                            if (users.length != limit) {
-                                checkPagination = false
-                            }
+                                },
+                                callback
+                            )
                         }
                     ],
                     callback
                 )
             },
-            function callback(err) {
+            function(err) {
                 callback(null, null)
             }
         )
     },
     doFunctinality: function(user, callback) {
-        //  console.log("mmmmmm" + users)
+        console.log("user--", user)
         console.log(" hii I am " + user.teacher_firstname)
         callback(null, user)
     }
