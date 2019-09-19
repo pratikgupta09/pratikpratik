@@ -10,13 +10,13 @@ router.get("/:id", (req, res) => {
     teachersModel.getTwo(req.params, res.callback)
 })
 router.delete("/:id", (req, res) => {
-    console.log("req.params::::", req.params)
+    // console.log("req.params::::", req.params)
     teachersModel.deleteData(req.params, res.callback)
-    res.send(`Delete For Id ${req.params.id}`)
+    // res.send(`Delete For Id ${req.params.id}`)
 })
 router.put("/:id", (req, res) => {
     teachersModel.updateById(req, res.callback)
-    res.send(`Update For Id ${req.params.id}`)
+    //res.send(`Update For Id ${req.params.id}`)
 })
 router.patch("/:id", (req, res) => {
     console.log("hi")

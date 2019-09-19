@@ -19,7 +19,6 @@ export default {
             .exec(callback)
     },
     getTwo(data, callback) {
-        console.log("ghjfvhl")
         teachers
             .aggregate([
                 {
