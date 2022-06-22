@@ -13,7 +13,7 @@
         "test": "mocha"
     },
     "dependencies": {
-        "async": "^3.1.0",
+        "async": "^3.2.2",
         "chai-http": "^4.3.0",
         "core-util-is": "^1.0.2",
         "wohlig-framework-core": "latest"
